@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import Comp1 from './components/Comp1'
+import { Outlet, Link } from "react-router-dom";
 
 const App: React.FC = () => {
-    const [num, setNum] = useState<number>(0);
-
-    useEffect(()=>{
-        console.log('comopnentDidUpdate')
-    }, [num])
 
     return (
         <>
-            <h2>启动了</h2>
-            <Comp1 num={num} setNum={setNum} />
+            <ul>
+                <li><Link to={"/example1"}>例子1-累加</Link></li>
+            </ul>
+            <Outlet />
         </>
     )
 }
