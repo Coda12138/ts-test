@@ -1,19 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import { Outlet, Link } from 'react-router-dom'
-
+import React, {Suspense} from 'react'
+import { useRoutes } from 'react-router-dom'
+import routes from './router'
 const App: React.FC = () => {
   return (
-    <>
-      <ul>
-        <li>
-          <Link to={'/example1'}>Coda云累加</Link>
-        </li>
-        <li>
-          <Link to={'/example2'}>Coda云音乐</Link>
-        </li>
-      </ul>
-      <Outlet />
-    </>
+    <div className='App'>
+      <Suspense fallback="">
+        <div className='main'>{useRoutes(routes)}</div>
+      </Suspense>
+    </div>
   )
 }
 
