@@ -1,5 +1,5 @@
-import React, {memo} from 'react'
-import type {FC, ReactNode} from 'react'
+import React, { memo } from 'react'
+import type { FC, ReactNode } from 'react'
 import { Outlet, Link } from 'react-router-dom'
 
 interface IProps {
@@ -23,4 +23,3 @@ const Discover: FC<IProps> = () => {
 }
 
 export default memo(Discover)
-

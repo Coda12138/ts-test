@@ -1,4 +1,4 @@
-import React, {lazy} from 'react'
+import React, { lazy } from 'react'
 // import App from '../App'
 import { Navigate, RouteObject } from 'react-router-dom'
 
@@ -8,7 +8,9 @@ const Example1 = lazy(() => import('@/pages/Example1'))
 const Example2 = lazy(() => import('@/pages/Example2'))
 
 const Discover = lazy(() => import('@/pages/Example2/discover'))
-const Recommend = lazy(() => import('@/pages/Example2/discover/c-pages/recommend'))
+const Recommend = lazy(
+  () => import('@/pages/Example2/discover/c-pages/recommend')
+)
 const Rank = lazy(() => import('@/pages/Example2/discover/c-pages/rank'))
 const Songs = lazy(() => import('@/pages/Example2/discover/c-pages/songs'))
 const Album = lazy(() => import('@/pages/Example2/discover/c-pages/album'))
@@ -87,7 +89,7 @@ const routes: RouteObject[] = [
       {
         path: '/discover/djradio',
         element: <DjRadio />
-      },
+      }
     ]
   },
   {
@@ -101,7 +103,7 @@ const routes: RouteObject[] = [
   {
     path: '/download',
     element: <Download />
-  },
+  }
 ]
 
 export default routes
