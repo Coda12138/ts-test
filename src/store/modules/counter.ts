@@ -1,12 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from '@reduxjs/toolkit'
 
 const counterSlice = createSlice({
-  name: "counter",
+  name: 'counter',
   initialState: {
     count: 100,
     message: 'Hello Redux'
   },
   reducers: {
+    changeMessageAction(state, { payload }) {
+      state.message = payload
+    },
     increment: (state) => {
       state.count++
     },
@@ -16,4 +19,6 @@ const counterSlice = createSlice({
   }
 })
 
+export const { changeMessageAction, increment, decrement } =
+  counterSlice.actions
 export default counterSlice.reducer

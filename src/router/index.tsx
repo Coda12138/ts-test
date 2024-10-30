@@ -109,7 +109,7 @@ const routes: RouteObject[] = [
         element: <Download />
       }
     ]
-  },
+  }
 ]
 
 export default routes
