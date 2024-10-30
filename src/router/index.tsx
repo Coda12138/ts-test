@@ -44,7 +44,7 @@ const Download = lazy(() => import('@/pages/Example2/download'))
 const routes: RouteObject[] = [
   {
     path: '/',
-    element: <Navigate to="/example2" />
+    element: <Navigate to="/codaSong" />
   },
   {
     path: '/home',
@@ -55,55 +55,61 @@ const routes: RouteObject[] = [
     element: <Example1 />
   },
   {
-    path: '/example2',
-    element: <Example2 />
-  },
-  {
-    path: '/discover',
-    element: <Discover />,
+    path: '/codaSong',
+    element: <Example2 />,
     children: [
       {
-        path: '/discover',
-        element: <Navigate to="/discover/recommend" />
+        path: '/codaSong',
+        element: <Navigate to="/codaSong/discover" />
       },
       {
-        path: '/discover/recommend',
-        element: <Recommend />
+        path: '/codaSong/discover',
+        element: <Discover />,
+        children: [
+          {
+            path: '/codaSong/discover',
+            element: <Navigate to="/codaSong/discover/recommend" />
+          },
+          {
+            path: '/codaSong/discover/recommend',
+            element: <Recommend />
+          },
+          {
+            path: '/codaSong/discover/songs',
+            element: <Songs />
+          },
+          {
+            path: '/codaSong/discover/rank',
+            element: <Rank />
+          },
+          {
+            path: '/codaSong/discover/album',
+            element: <Album />
+          },
+          {
+            path: '/codaSong/discover/artist',
+            element: <Artist />
+          },
+          {
+            path: '/codaSong/discover/djradio',
+            element: <DjRadio />
+          }
+        ]
       },
       {
-        path: '/discover/songs',
-        element: <Songs />
+        path: '/codaSong/mine',
+        element: <Mine />
       },
       {
-        path: '/discover/rank',
-        element: <Rank />
+        path: '/codaSong/focus',
+        element: <Focus />
       },
       {
-        path: '/discover/album',
-        element: <Album />
-      },
-      {
-        path: '/discover/artist',
-        element: <Artist />
-      },
-      {
-        path: '/discover/djradio',
-        element: <DjRadio />
+        path: '/codaSong/download',
+        element: <Download />
       }
     ]
   },
-  {
-    path: '/mine',
-    element: <Mine />
-  },
-  {
-    path: '/focus',
-    element: <Focus />
-  },
-  {
-    path: '/download',
-    element: <Download />
-  }
 ]
 
 export default routes
