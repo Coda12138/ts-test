@@ -1,12 +1,36 @@
-import type { AxiosRequestConfig, AxiosResponse } from 'axios'
+import type {
+  AxiosRequestConfig,
+  InternalAxiosRequestConfig,
+  AxiosResponse
+} from 'axios'
 
-export interface HYIntereceptors<T = AxiosResponse> {
-  requestSuccessFn?: (config: AxiosRequestConfig) => AxiosRequestConfig
-  requestFailureFn?: (err: any) => any
-  responseSuccessFn?: (res: T) => T
-  responseFailureFn?: (err: any) => any
+export interface CodaInternalRequestInterceptor<
+  T = AxiosResponse,
+  R = unknown
+> {
+  requestInterceptor?: (
+    config: InternalAxiosRequestConfig
+  ) => InternalAxiosRequestConfig
+  requestInterceptorCatch?: (error: R) => R
+  responseInterceptor?: (res: T) => T
+  responseInterceptorCatch?: (err: R) => R
 }
 
-export interface HYRequestConfig<T = AxiosResponse> extends AxiosRequestConfig {
-  interceptors?: HYIntereceptors<T>
+export interface CodaInternalRequestConfig<T = AxiosResponse>
+  extends AxiosRequestConfig {
+  interceptor?: CodaInternalRequestInterceptor<T>
+  showLoading?: boolean
+}
+
+export interface CodaRequestInterceptor<T = AxiosResponse, R = unknown> {
+  requestInterceptor?: (config: AxiosRequestConfig) => AxiosRequestConfig
+  requestInterceptorCatch?: (err: R) => R
+  responseInterceptor?: (res: T) => T
+  responseInterceptorCatch?: (err: R) => R
+}
+
+export interface CodaRequestConfig<T = AxiosResponse>
+  extends AxiosRequestConfig {
+  interceptor?: CodaRequestInterceptor<T>
+  showLoading?: boolean
 }
