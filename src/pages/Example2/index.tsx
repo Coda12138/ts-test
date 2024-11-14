@@ -12,7 +12,6 @@ interface IProps {
 const Example2: FC<IProps> = () => {
   return (
     <>
-      <div className="title">Coda云音乐</div>
       <AppHeader />
       <Suspense>
         <Outlet />
