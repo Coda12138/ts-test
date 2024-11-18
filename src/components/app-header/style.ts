@@ -77,4 +77,44 @@ export const HeaderLeft = styled.div`
   }
 `
 
-export const HeaderRight = styled.div``
+export const HeaderRight = styled.div`
+  display: flex;
+  align-items: center;
+  color: #787878;
+  font-size: 12px;
+
+  > .search {
+    width: 158px;
+    height: 32px;
+    border-radius: 16px;
+
+    input::placeholder {
+      font-size: 12px;
+    }
+  }
+
+  .center {
+    width: 90px;
+    height: 32px;
+    line-height: 32px;
+    margin: 0 16px;
+    text-align: center;
+    border: 1px #666 solid;
+    border-radius: 16px;
+    color: #ccc;
+    cursor: pointer;
+
+    &:hover {
+      color: #fff;
+      border-color: #fff;
+    }
+  }
+
+  .sign-in {
+    &:hover {
+      text-decoration: underline;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+`

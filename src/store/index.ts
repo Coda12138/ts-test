@@ -9,10 +9,12 @@ import {
 } from 'react-redux'
 
 import counterReducer from './modules/counter'
+import recommendReducer from '@/pages/Example2/discover/c-pages/recommend/store/recommend'
 
 const store = configureStore({
   reducer: {
-    counter: counterReducer
+    counter: counterReducer,
+    recommend: recommendReducer
   }
 })
 

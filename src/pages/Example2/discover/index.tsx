@@ -1,6 +1,7 @@
-import React, { memo } from 'react'
+import React, { memo, Suspense } from 'react'
 import type { FC, ReactNode } from 'react'
-import { Outlet, Link } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
+import NavBar from './c-cpns/nav-bar'
 
 interface IProps {
   children?: ReactNode
@@ -9,15 +10,10 @@ interface IProps {
 const Discover: FC<IProps> = () => {
   return (
     <div>
-      <div>
-        <Link to="/codaSong/discover/recommend">推荐</Link>
-        <Link to="/codaSong/discover/rank">排行</Link>
-        <Link to="/codaSong/discover/songs">歌单</Link>
-        <Link to="/codaSong/discover/djradio">电台</Link>
-        <Link to="/codaSong/discover/artist">歌手</Link>
-        <Link to="/codaSong/discover/album">专辑</Link>
-      </div>
-      <Outlet />
+      <NavBar />
+      <Suspense>
+        <Outlet />
+      </Suspense>
     </div>
   )
 }
