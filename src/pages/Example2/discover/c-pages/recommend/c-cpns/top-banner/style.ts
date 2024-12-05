@@ -92,17 +92,18 @@ export const BannerControl = styled.div`
     cursor: pointer;
 
     &:hover {
-      background-color: rgba(0, 0, 0, 0.3);
+      background-color: rgba(0, 0, 0, 0.3) !important;
+      background: none !important;
     }
   }
 
   .left {
-    left: 68px;
+    left: 200px;
     background-position: 0 -360px;
   }
 
   .right {
-    right: 68px;
+    right: 200px;
     background-position: 0 -508px;
   }
 `

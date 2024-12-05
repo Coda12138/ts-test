@@ -3,6 +3,7 @@ import type { FC, ReactNode, ElementRef } from 'react'
 import { useAppSelector, shallowEqualApp } from '@/store'
 import { Carousel, Button } from 'antd'
 import { BannerControl, BannerMain, BannerWrapper } from './style'
+import classNames from 'classnames'
 
 interface IProps {
   children?: ReactNode
@@ -25,6 +26,11 @@ const TopBanner: FC<IProps> = () => {
     setCurrentIndex(to)
   }, [])
 
+  // 指示器
+  const onDotClick = (index: number) => {
+    bannerRef.current?.goTo(index)
+  }
+
   // 事件处理函数
   const handlePrevClick = () => {
     bannerRef.current?.prev()
@@ -44,6 +50,7 @@ const TopBanner: FC<IProps> = () => {
       <BannerMain>
         <Carousel
           autoplay
+          dots={false}
           effect="fade"
           ref={bannerRef}
           beforeChange={onCarouselBeforechange}
@@ -56,6 +63,17 @@ const TopBanner: FC<IProps> = () => {
             ))
           }
         </Carousel>
+        {/* 轮播图指示器 */}
+        <ul className='dots'>
+          {banners.map((item, index) => (
+            <li key={item.imageUrl}>
+              <span
+                className={classNames('item', { active: index === currentIndex })}
+                onClick={() => onDotClick(index)}
+              ></span>
+            </li>
+          ))}
+        </ul>
       </BannerMain>
       <BannerControl>
         <Button className='btn left' onClick={handlePrevClick}></Button>
