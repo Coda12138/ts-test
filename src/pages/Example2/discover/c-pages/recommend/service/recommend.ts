@@ -14,3 +14,8 @@ export function getHotRecommend(limit = 30) {
     }
   })
 }
+
+export const getNewAlbum = () =>
+  codaRequest.get({
+    url: '/album/newest'
+  })
